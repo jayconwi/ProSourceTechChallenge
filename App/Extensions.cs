@@ -25,11 +25,13 @@ namespace App
                     openBraces.Add(bracket);
 
                 else if (bracket == '}') // Process eliminating open brackets if an closing bracket is detected
-                { 
+                {
                     if (openBraces.Count() > 1 && openBraces[openBraces.Count() - 1] == '{')
                         openBraces.RemoveAt(openBraces.Count() - 1);
                     else if (openBraces.Count() == 1 && openBraces[0] == '{')
                         openBraces.RemoveAt(0);
+                    else
+                        return false;
                 }
             }
 
